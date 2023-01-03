@@ -5,12 +5,14 @@ function App() {
   const [clickPosition, setClickPosition] = useState([{}]);
 
   const handleClick = (e) => (
-    setClickPosition({x: e.clientX, y: e.clientY})
+    setClickPosition([ ...clickPosition , {x: e.clientX, y: e.clientY }])
   )
 
   return (
-    <div className="App" onClick={(handleClick)}>
-      <div className='click' style={{left: clickPosition.x, top: clickPosition.y}}></div>
+    <div className="App" onClick={handleClick}>
+      {clickPosition.map((circle) => {
+        return <div className='click' style={{left: circle.x, top: circle.y}}></div>
+      })}
     </div>
   );
 }
