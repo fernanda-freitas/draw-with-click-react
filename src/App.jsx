@@ -15,13 +15,20 @@ function App() {
 
   const handleUndo = (event) => {
     event.stopPropagation()
+    // Remove from clicked list
     setClickedList([...clickedList.slice(0, -1)])
-    const lastItem = clickedList[clickedList.length - 1]
-    setRemovedList([...removedList, lastItem])
+    // Add to removed list
+    setRemovedList([...removedList, clickedList.at(-1)])
   }
 
   const handleRedo = (event) => {
     event.stopPropagation()
+    // Remove from removed list
+    setRemovedList((removedList) => {
+      const newArr = [...removedList].slice(0, -1)
+      return newArr
+    })
+    // Add to clicked list
     setClickedList([...clickedList, removedList.at(-1)])
   }
 
