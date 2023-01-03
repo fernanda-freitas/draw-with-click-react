@@ -11,3 +11,10 @@
   border-radius: 50%;
   border: 2px solid darkorchid;
 }
+
+.undo-action {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
