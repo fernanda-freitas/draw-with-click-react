@@ -12,22 +12,23 @@ function App() {
   const handleUndo = (event) => {
     event.stopPropagation()
 
-    const lastItem = clickList[clickList.length - 1]
-    setUndid((prev) => {
-      return [...prev, lastItem]
-    })
-
     setClickList((prev) => {
       const newArr = [...prev].slice(0,-1)
       return newArr
     })
-  }
 
-  console.log(clickList)
-  console.log(undid)
+    const lastItem = clickList[clickList.length - 1]
+    setUndid((prev) => {
+      return [...prev, lastItem]
+    })
+  }
 
   const handleRedo = (event) => {
     event.stopPropagation()
+
+    setClickList((prev) => {
+      return [...prev, undid[undid.length - 1]]
+    })
   }
 
   return (
