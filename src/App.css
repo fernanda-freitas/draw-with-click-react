@@ -18,3 +18,10 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.redo-action {
+  position: absolute;
+  bottom: 3rem;
+  left: 56%;
+  transform: translateX(-50%);
+}
